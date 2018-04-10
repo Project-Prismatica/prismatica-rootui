@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Radium, { Style, StyleRoot }  from 'radium';
 
 // UI Templating
@@ -16,7 +17,7 @@ export default class CreateObservation extends Component {
        hideCompleted: false,
       };
    }
-   handleSubmit(event) {
+   newObservation(event) {
      event.preventDefault();
 
      // Find the text field via the React ref
@@ -36,12 +37,15 @@ export default class CreateObservation extends Component {
       <StyleRoot>
          <br />
 
-         <form className="new-task">
+         <form className="new-task" onSubmit={this.newObservation.bind(this)}>
            <input
              type="text"
              ref="textInput"
              placeholder="Type to add new observation"
            />
+           <Button color="primary" onClick={this.newObservation.bind(this)}>
+             Submit
+           </Button>
          </form>
       </StyleRoot>
 
