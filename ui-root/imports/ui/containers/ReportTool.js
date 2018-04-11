@@ -8,8 +8,7 @@ import Radium, { Style, StyleRoot }  from 'radium';
 import { Button } from 'reactstrap';
 
 // API Imports
-import { Tasks } from '../../api/tasks.js';
-import { Observations } from '../../api/observations.js';
+import { Findings } from '../../api/findings.js';
 import { Engagements } from '../../api/engagements.js';
 //import { Nessus } from '../api/nessus_ingest.js';
 
@@ -25,7 +24,8 @@ class ReportTool extends Component {
     super(props);
 
     this.state = {
-       hideCompleted: false,
+       hideCreateObservation: false,
+       hideCreateFinding: false,
     };
    }
    getStyles() {
@@ -47,23 +47,30 @@ class ReportTool extends Component {
      };
    }
 
-   toggleHideCompleted() {
-     this.setState({
-       hideCompleted: !this.state.hideCompleted,
-     });
-     //Nessus.ingest();
-   }
 
-  renderFindings() {
-   let findings = this.props.tasks;
+
+  getFindings() {
+   let findings = this.props.findings;
 
    return findings.map((finding) => (
       <span key={finding._id}>
-         {finding.title}
+         <h3>{finding.title}</h3>
+         <br />
+         <h5>observation</h5>
+         <ReactMarkdown source={finding.observation} />
+         <br />
+         <h5>discussion</h5>
+         <ReactMarkdown source={finding.discussion} />
+         <br />
+         <h5>recommendations</h5>
+         <ReactMarkdown source={finding.recommendations} />
+         <br />
+         <h5>references</h5>
+         <ReactMarkdown source={finding.references} />
+         <hr />
       </span>
    ));
   }
-
   getEngagement() {
      let assessments = this.props.engage;
 
@@ -74,9 +81,23 @@ class ReportTool extends Component {
      ));
   }
 
+
+  toggleHideCompleted() {
+    this.setState({
+      hideCompleted: !this.state.hideCompleted,
+    });
+    //Nessus.ingest();
+  }
   toggleCreateObservation() {
      this.setState({
       hideCreateObservation: !this.state.hideCreateObservation,
+      hideCreateFinding: false
+     });
+  }
+  toggleCreateFinding() {
+     this.setState({
+      hideCreateObservation: false,
+      hideCreateFinding: !this.state.hideCreateFinding
      });
   }
 
@@ -91,11 +112,16 @@ class ReportTool extends Component {
        );
      }
   }
-
-  toggleCreateFinding() {
-     return (
-       <CreateFinding />
-     );
+  renderCreateFinding() {
+     if (this.state.hideCreateFinding) {
+       return (
+          <CreateFinding />
+       )
+     } else {
+       return (
+          <span></span>
+       );
+     }
   }
 
   render() {
@@ -122,6 +148,7 @@ class ReportTool extends Component {
           <hr />
 
           {this.renderCreateObservation()}
+          {this.renderCreateFinding()}
         </div>
 
         <br />
@@ -132,9 +159,7 @@ class ReportTool extends Component {
            <hr />
            <br />
            <ReactMarkdown source="# Findings" />
-           <ul>
-             {this.renderFindings()}
-           </ul>
+             {this.getFindings()}
 
             <ReactMarkdown source="# Methodology" />
         </div>
@@ -147,7 +172,7 @@ class ReportTool extends Component {
 export default withTracker(() => {
   return {
     engage: Engagements.find({}, { sort: { createdAt: -1 } }).fetch(),
-    tasks: Tasks.find({}, { sort: { createdAt: -1 } }).fetch(),
-    incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
+    findings: Findings.find({}, { sort: { createdAt: -1 } }).fetch(),
+    incompleteCount: Findings.find({ checked: { $ne: true } }).count(),
   };
 })(ReportTool);

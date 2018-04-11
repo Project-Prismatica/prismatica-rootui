@@ -14,41 +14,59 @@ export default class CreateObservation extends Component {
       super(props);
 
       this.state = {
-       hideCompleted: false,
+       hideCreateObservationWizard: false,
       };
    }
    newObservation(event) {
      event.preventDefault();
 
      // Find the text field via the React ref
-     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+     const title = ReactDOM.findDOMNode(this.refs.titleInput).value.trim();
+     const details = ReactDOM.findDOMNode(this.refs.detailsInput).value.trim();
 
      Observations.insert({
-       text,
+       title,
+       details,
        createdAt: new Date(), // current time
      });
 
      // Clear form
-     ReactDOM.findDOMNode(this.refs.textInput).value = '';
+     ReactDOM.findDOMNode(this.refs.titleInput).value = '';
+     ReactDOM.findDOMNode(this.refs.detailsInput).value = '';
+     this.setState({
+      hideCreateObservationWizard: !this.state.hideCreateObservationWizard,
+     });
    }
 
   render() {
-    return (
-      <StyleRoot>
-         <br />
+     if (this.state.hideCreateObservationWizard) {
+      return (
+          <span></span>
+      )
+     } else {
+        return (
+          <StyleRoot>
+             <br />
+             <h3>Create New Observation</h3>
+             <form className="new-task" onSubmit={this.newObservation.bind(this)}>
+               <input
+                 type="text"
+                 ref="titleInput"
+                 placeholder="Observation Title"
+               />
+               <input
+                 type="text"
+                 ref="detailsInput"
+                 placeholder="Type to add new observation details"
+               />
+               <Button color="primary" onClick={this.newObservation.bind(this)}>
+                 Submit
+               </Button>
+             </form>
+          </StyleRoot>
+        );
+     }
 
-         <form className="new-task" onSubmit={this.newObservation.bind(this)}>
-           <input
-             type="text"
-             ref="textInput"
-             placeholder="Type to add new observation"
-           />
-           <Button color="primary" onClick={this.newObservation.bind(this)}>
-             Submit
-           </Button>
-         </form>
-      </StyleRoot>
 
-    );
   }
 }
