@@ -32,6 +32,15 @@ class CreateFinding extends Component {
        assignedobs: [{_id: "0", title: ""}]
       };
    }
+   getStyles() {
+     const bgcolor = "red"
+     return {
+      overScroll: {
+        overflow: "auto",
+        maxHeight: "300px"
+      }
+     };
+   }
    newFinding(event) {
      event.preventDefault();
 
@@ -126,22 +135,22 @@ class CreateFinding extends Component {
            {this.renderAssignedObservations()}
            <br />
            <Label>Custom Observation Details</Label>
-           <Input type="textarea" ref="observationsInput">{this.state.obstmp}</Input>
+           <Input type="textarea" ref="observationsInput" rows="10" defaultValue={this.state.obstmp} />
            </FormGroup>
 
            <FormGroup>
            <Label size="lg">Discussion</Label>
-           <Input type="textarea" ref="discussionInput">{this.state.dsctmp}</Input>
+           <Input type="textarea" ref="discussionInput" rows="10" defaultValue={this.state.dsctmp} />
            </FormGroup>
 
            <FormGroup>
            <Label size="lg">Recommendations</Label>
-           <Input type="textarea" ref="recommendationsInput">{this.state.rcmtmp}</Input>
+           <Input type="textarea" ref="recommendationsInput" rows="10" defaultValue={this.state.rcmtmp} />
            </FormGroup>
 
            <FormGroup>
            <Label size="lg">References</Label>
-           <Input type="textarea" ref="referencesInput">{this.state.reftmp}</Input>
+           <Input type="textarea" ref="referencesInput" rows="10" defaultValue={this.state.reftmp} />
            </FormGroup>
 
            <hr />
@@ -169,6 +178,7 @@ class CreateFinding extends Component {
    }
 
   render() {
+     const styles = this.getStyles();
      if (this.state.hideCreateFindingWizard) {
       return (
           <span></span>
@@ -184,7 +194,7 @@ class CreateFinding extends Component {
                   <DropdownToggle caret>
                      Select Finding
                   </DropdownToggle>
-                  <DropdownMenu>
+                  <DropdownMenu style={[styles.overScroll]}>
                      {this.getFindingList()}
                      <DropdownItem divider />
                      <DropdownItem>Custom Finding</DropdownItem>

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Radium, { Style, StyleRoot }  from 'radium';
+import Dropzone from 'react-dropzone';
 
 // UI Templating
 import { Button } from 'reactstrap';
 
 // API Imports
 import { Observations } from '../../api/observations.js';
+import { Images } from '../../api/images.js';
 
 // Task component - represents a single todo item
 export default class CreateObservation extends Component {
@@ -15,6 +17,7 @@ export default class CreateObservation extends Component {
 
       this.state = {
        hideCreateObservationWizard: false,
+       files: []
       };
    }
    newObservation(event) {
@@ -36,6 +39,20 @@ export default class CreateObservation extends Component {
      this.setState({
       hideCreateObservationWizard: !this.state.hideCreateObservationWizard,
      });
+   }
+   onDrop(files) {
+      this.setState({
+       files
+      });
+      let upload = Images.insert({
+        file: files[0],
+        streams: 'dynamic',
+        chunkSize: 'dynamic'
+      }, false);
+      upload.on('error', function (error, fileObj) {
+          console.log('Error during upload: ' + error)
+      });
+      upload.start();
    }
 
   render() {
@@ -59,6 +76,18 @@ export default class CreateObservation extends Component {
                  ref="detailsInput"
                  placeholder="Type to add new observation details"
                />
+
+               <Dropzone onDrop={this.onDrop.bind(this)}>
+                 <div>Try dropping some files here, or click to select files to upload.</div>
+               </Dropzone>
+
+               <h2>Dropped files</h2>
+                <ul>
+                  {
+                    this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                  }
+                </ul>
+
                <Button color="primary" onClick={this.newObservation.bind(this)}>
                  Submit
                </Button>
@@ -66,7 +95,5 @@ export default class CreateObservation extends Component {
           </StyleRoot>
         );
      }
-
-
   }
 }

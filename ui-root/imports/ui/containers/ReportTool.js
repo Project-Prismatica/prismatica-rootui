@@ -54,19 +54,27 @@ class ReportTool extends Component {
 
    return findings.map((finding) => (
       <span key={finding._id}>
-         <h3>{finding.title}</h3>
-         <br />
-         <h5>observation</h5>
-         <ReactMarkdown source={finding.observation} />
-         <br />
-         <h5>discussion</h5>
-         <ReactMarkdown source={finding.discussion} />
-         <br />
-         <h5>recommendations</h5>
-         <ReactMarkdown source={finding.recommendations} />
-         <br />
-         <h5>references</h5>
-         <ReactMarkdown source={finding.references} />
+         <table className="finding-header">
+         <tbody>
+            <tr>
+               <td className="finding-severity critical"> C </td>
+               <td className="finding-name">{finding.title}</td>
+            </tr>
+         </tbody>
+         </table>
+         <div className="finding-details">
+            <ReactMarkdown source="**Observation:**" />
+            <ReactMarkdown source={finding.observation} />
+            <br />
+            <ReactMarkdown source="**Discussion:**" />
+            <ReactMarkdown source={finding.discussion} />
+            <br />
+            <ReactMarkdown source="**Recommendations:**" />
+            <ReactMarkdown source={finding.recommendations} />
+            <br />
+            <ReactMarkdown source="**References:**" />
+            <ReactMarkdown source={finding.references} />
+         </div>
          <hr />
       </span>
    ));

@@ -3,6 +3,11 @@ body {
 
 }
 
+.dropdown-menu {
+   overflow: auto;
+   max-height: 300px;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100%;
