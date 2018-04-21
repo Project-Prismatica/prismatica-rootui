@@ -120,7 +120,7 @@ class Nav extends Component {
           </div>
           <div style={[styles.pnameCont]}>
             <div style={[styles.navText]}>
-              0sm0s1z
+              USERNAME
             </div>
           </div>
         </div>
