@@ -68,25 +68,27 @@ class Panel extends Component {
         </div>
         <div style={[styles.sidebarWidget]}>
          <Link to="/ReportTool">
-          <span style={[styles.sideIcons]}>
-          <Poll color="#475070" hoverColor="yellow" style={{
-            fontSize: "70px",
-            height: "32px",
-            width: "32px",
-            lineHeight: "20px",
-          }} />
-          </span>
+           <span style={[styles.sideIcons]}>
+           <Poll color="#475070" hoverColor="yellow" style={{
+             fontSize: "70px",
+             height: "32px",
+             width: "32px",
+             lineHeight: "20px",
+           }} />
+           </span>
          </Link>
         </div>
         <div style={[styles.sidebarWidget]}>
-          <span style={[styles.sideIcons]}>
-          <Dns color="#475070" hoverColor="yellow" style={{
-            fontSize: "70px",
-            height: "32px",
-            width: "32px",
-            lineHeight: "20px",
-          }} />
-          </span>
+          <Link to="/reports/TemplateManager">
+              <span style={[styles.sideIcons]}>
+              <Dns color="#475070" hoverColor="yellow" style={{
+                fontSize: "70px",
+                height: "32px",
+                width: "32px",
+                lineHeight: "20px",
+              }} />
+              </span>
+          </Link>
         </div>
         <div style={[styles.sidebarWidget]}>
           <span style={[styles.sideIcons]}>
