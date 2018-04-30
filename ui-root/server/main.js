@@ -1,13 +1,7 @@
-import { Meteor } from 'meteor/meteor';
+import '../imports/api/tasks';
+import '../imports/api/engagements';
+import '../imports/api/observations';
+import '../imports/api/findings';
+import '../imports/api/images';
 
-import '../imports/api/tasks.js';
-import '../imports/api/engagements.js';
-import '../imports/api/observations.js';
-import '../imports/api/findings.js';
-import '../imports/api/nessus_ingest.js';
-
-import '../imports/api/images.js';
-
-import "../imports/api/reports/methods"
-
-Meteor.startup(function(){});
+import "../imports/api/reports/methods";

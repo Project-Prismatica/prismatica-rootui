@@ -23,6 +23,8 @@ cfs:gridfs
 cfs:standard-packages
 ostrio:files
 mdg:validated-method
-aldeed:simple-schema
 ultimatejs:tracker-react
 dburles:mongo-collection-instances
+random
+aldeed:simple-schema
+aldeed:collection2
