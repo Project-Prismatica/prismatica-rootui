@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Radium, { Style, StyleRoot }  from 'radium';
+import Radium  from 'radium';
 import { Link } from 'react-router-dom';
 
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {Dns, CheckCircle, Delete, DeleteForever, AccountCircle, DonutLarge, GetApp, Lable, Home, Reorder, TrendingUp, VerifiedUser, ViewList, Settings, Polymer, Warning, Error, Widgets, FolderShared, Tv, CheckBox, CheckBoxOutlineBlank, Coffee, Poll, Download, Share} from 'mdi-material-ui';
+import { MuiThemeProvider } from 'material-ui/styles';
+import {Dns, Settings, Polymer, Widgets, Poll} from 'mdi-material-ui';
 
 class Panel extends Component {
   constructor(props) {
