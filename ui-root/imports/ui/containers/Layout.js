@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Radium, { Style, StyleRoot }  from 'radium';
-import Nav from '../containers/Nav';
-import Panel from '../containers/Panel';
+import Nav from './Nav';
+import Panel from './Panel';
 
 class Layout extends Component {
   constructor(props) {
