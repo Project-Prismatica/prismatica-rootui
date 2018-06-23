@@ -1,0 +1,36 @@
+{
+  "name": "ui-root",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.36",
+    "@browser-bunyan/console-formatted-stream": "^1.3.0",
+    "async": "^2.6.0",
+    "bootstrap": "^4.0.0",
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "file-system": "^2.2.2",
+    "fs": "0.0.1-security",
+    "google-protobuf": "^3.5.0",
+    "gridfs-stream": "^1.1.1",
+    "grpc": "^1.10.0",
+    "history": "^4.7.2",
+    "jquery": "^1.9.1",
+    "material-ui": "^0.20.1",
+    "mdi-material-ui": "^3.2.0",
+    "meteor-node-stubs": "^0.3.2",
+    "radium": "^0.24.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-dropzone": "^4.2.9",
+    "react-markdown": "^3.3.0",
+    "react-mounter": "^1.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "reactstrap": "^5.0.0-beta.3",
+    "simpl-schema": "^1.5.0",
+    "terminal-in-react": "^4.3.0"
+  }
+}
