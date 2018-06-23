@@ -16,7 +16,7 @@ class PrismaticInterpreter extends Component {
    constructor(props) {
     super(props);
 
-    showMsg = 'Hello World'
+    //showMsg = 'Hello World'
 
     this.state = {
        hideCompleted: false,
@@ -34,7 +34,7 @@ class PrismaticInterpreter extends Component {
              style={{ fontWeight: "bold", fontSize: "1em", width: "100%" }}
              commands={{
                'open-google': () => window.open('google.com', '_blank'),
-               showmsg: this.showMsg,
+               showmsg: "asdf",//this.showMsg,
                popup: () => alert('Terminal in React')
              }}
              descriptions={{
