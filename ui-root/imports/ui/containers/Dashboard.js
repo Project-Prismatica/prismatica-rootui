@@ -3,6 +3,7 @@ import Radium from 'radium';
 import {StyleRoot} from 'radium';
 
 import Engagement from '../components/Engagement';
+import PrismaticInterpreter from '../components/PrismaticInterpreter';
 
 class Dashboard extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class Dashboard extends Component {
       <StyleRoot>
         <div style={[styles.mainContainer]} className="mainContainer">
          <Engagement />
+         <PrismaticInterpreter />
         </div>
       </StyleRoot>
     );
