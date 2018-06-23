@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-import Button from "material-ui/Button"
+import Button from "material-ui/styles"
 import Card, { CardHeader, CardContent, CardActions } from
-        'material-ui/Card';
+        'material-ui/styles';
 import { Delete, SquareEditOutline } from "mdi-material-ui"
 
 
