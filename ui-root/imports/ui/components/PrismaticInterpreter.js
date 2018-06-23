@@ -16,7 +16,7 @@ class PrismaticInterpreter extends Component {
    constructor(props) {
     super(props);
 
-    showMsg = () => 'Hello World'
+    showMsg = 'Hello World'
 
     this.state = {
        hideCompleted: false,
