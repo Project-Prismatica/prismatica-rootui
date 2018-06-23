@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Radium, { Style, StyleRoot }  from 'radium';
 
 
-import { MuiThemeProvider, } from 'material-ui/styles';
-import { AccountCircle, Download, Share, } from 'mdi-material-ui';
+//import Search from '../components/Search';
+
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import {Dns, CheckCircle, Delete, DeleteForever, AccountCircle, DonutLarge, GetApp, Lable, Home, Reorder, TrendingUp, VerifiedUser, ViewList, Settings, Polymer, Warning, Error, Widgets, FolderShared, Tv, CheckBox, CheckBoxOutlineBlank, Coffee, Poll, Download, Share} from 'mdi-material-ui';
 
 
 class Nav extends Component {
