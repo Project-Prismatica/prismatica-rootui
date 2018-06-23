@@ -2,9 +2,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Input, { InputLabel, InputAdornment } from 'material-ui/Input';
-import { FormControl, } from 'material-ui/Form';
-import FlatButton from 'material-ui/Button'
+import Input, { InputLabel, InputAdornment } from 'material-ui/styles';
+import { FormControl, } from 'material-ui/styles';
+import FlatButton from 'material-ui/styles'
 import { Creation, Delete } from "mdi-material-ui"
 
 import { DefaultLogger, } from "../../../../client/logging";

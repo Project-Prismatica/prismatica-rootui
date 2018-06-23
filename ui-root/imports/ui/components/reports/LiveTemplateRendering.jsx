@@ -5,7 +5,7 @@ import { Random } from "meteor/random"
 
 import { Container, Input, Label, Row, Col } from "reactstrap"
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Button from 'material-ui/Button'
+import Button from 'material-ui/styles'
 import { Close, } from "mdi-material-ui"
 
 import { KeyValueDisplay } from "./KeyValueDisplay";
